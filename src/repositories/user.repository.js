@@ -16,7 +16,15 @@ async function createSession(body) {
     return await db.collection("session").insertOne(body);
 }
 
+async function getSession(token) {
+    return await db.collection("session").findOne({ token });
+}
 
-const userRepository = {findUser, createUser, deleteSessions, createSession};
+async function findUserById(userId) {
+    return await db.collection("users").findOne({ _id: userId });
+}
+
+
+const userRepository = {findUser, createUser, deleteSessions, createSession, getSession, findUserById};
 
 export default userRepository;

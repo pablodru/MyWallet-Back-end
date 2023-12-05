@@ -1,9 +1,9 @@
 import httpStatus from "http-status";
 
-export default function unAuthorizedError(){
+export default function unAuthorizedError(message){
     return {
         name: "unAuthorizedError",
-        message: {message: "Senha incorreta."},
+        message: {message},
         status: httpStatus.UNAUTHORIZED
     }
 }

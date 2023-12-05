@@ -21,7 +21,7 @@ async function signIn(email, password) {
 	if (!user) throw notFoundError();
 
 	const correctPassword = bcrypt.compareSync(password, user.password);
-	if (!correctPassword) throw unAuthorizedError()
+	if (!correctPassword) throw unAuthorizedError("Senha incorreta.")
 
     await userRepository.deleteSessions(user._id);
 
