@@ -4,6 +4,10 @@ async function createTransaction(body) {
     return await db.collection("transations").insertOne(body);
 }
 
-const transactionRepository = {createTransaction};
+async function getTransactions(name) {
+    return await db.collection("transations").find({ name }).toArray();
+}
+
+const transactionRepository = {createTransaction, getTransactions};
 
 export default transactionRepository;
