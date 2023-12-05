@@ -1,7 +1,7 @@
 import httpStatus from "http-status";
 
 export function handleApplicationError(err, _req, res, _next) {
-    const errors = ["conflictError"];
+    const errors = ["conflictError", "notFoundError", "unAuthorizedError"];
 
     if(errors.includes(err.name)){
         return res.status(err.status).send(err.message)
