@@ -1,22 +1,22 @@
-import transactionService from "../services/transaction.service.js";
-import httpStatus from "http-status";
+import httpStatus from 'http-status';
+import transactionService from '../services/transaction.service.js';
 
 export async function newTransaction(req, res) {
-	const { value, description, type } = req.body;
-	const { authorization } = req.headers;
+  const { value, description, type } = req.body;
+  const { authorization } = req.headers;
 
-	await transactionService.newTransaction(
-		{ value, description, type },
-		authorization
-	);
+  await transactionService.newTransaction(
+    { value, description, type },
+    authorization,
+  );
 
-	res.sendStatus(httpStatus.CREATED);
+  res.sendStatus(httpStatus.CREATED);
 }
 
 export async function getTransactions(req, res) {
-	const { authorization } = req.headers;
+  const { authorization } = req.headers;
 
-	const transactions = await transactionService.getTransactions(authorization);
+  const transactions = await transactionService.getTransactions(authorization);
 
-	res.status(httpStatus.OK).send(transactions);
+  res.status(httpStatus.OK).send(transactions);
 }

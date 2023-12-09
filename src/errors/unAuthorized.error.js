@@ -1,9 +1,9 @@
-import httpStatus from "http-status";
+import httpStatus from 'http-status';
 
-export default function unAuthorizedError(message){
-    return {
-        name: "unAuthorizedError",
-        message: {message},
-        status: httpStatus.UNAUTHORIZED
-    }
+export default function unAuthorizedError(message) {
+  return {
+    name: 'unAuthorizedError',
+    message: { message },
+    status: httpStatus.UNAUTHORIZED,
+  };
 }
